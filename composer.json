@@ -1,0 +1,43 @@
+{
+	"name": "enceeper/enceeper-phpconf",
+	"description": "PHP package for fetching keys from a user account on Enceeper. The main purpose is to be able to store configuration information in the user's safe and have this information delivered to a PHP application.",
+	"type": "library",
+	"license": "GPL-3.0-or-later",
+	"keywords": [
+		"enceeper",
+		"config",
+		"configuration",
+		"php",
+		"crypto",
+		"encrypted",
+		"cache",
+		"redis",
+		"filesystem",
+		"deploy",
+		"ci",
+		"cd",
+		"scrypt"
+	],
+	"authors": [
+		{
+			"name": "Enceeper",
+			"email": "hello@enceeper.com",
+			"homepage": "https://www.enceeper.com"
+		}
+	],
+	"require": {
+		"php": "^7.0",
+		"ext-openssl": "*"
+	},
+	"suggest": {
+		"php-64bit": "PHP 64-bit is required if you plan on testing/using the PHP scrypt implementation.",
+		"enceeper/scrypt": "Binary scrypt implementation (in C) to run 20 times faster and consume less memory (you will need to compile the software and provide the path to the executable).",
+		"ext-intl": "For utilizing the Normalizer::normalize on passwords and using their NFKD form.",
+		"ext-redis": "You will need to install Redis server and the PHP Redis package in order to utilize the RedisCache implementation."
+	},
+	"autoload": {
+		"psr-4": {
+			"Enceeper\\": "src/"
+		}
+	}
+}
