@@ -142,7 +142,16 @@ class Enceeper
         $executable = $this->pbkd_binaries . $method;
 
         if ( file_exists($executable) && is_executable($executable) ) {
-            $line = exec($executable .' '. bin2hex($salt) .' '. bin2hex($this->password) .' 32768', $result, $retval);
+            $passhex = bin2hex($this->password);
+            $passlen = strlen($passhex);
+            if ( $passlen==0 || $passlen%8!==0 ) {
+                $passpad = str_pad($passhex, $passlen +  (8 - $passlen%8), '0');
+            }
+            else {
+                $passpad = $passhex;
+            }
+
+            $line = exec($executable .' '. bin2hex($salt) .' '. $passpad .' 32768', $result, $retval);
 
             if ( $retval==0 ) {
                 $output = hex2bin($line);
