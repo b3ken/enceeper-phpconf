@@ -30,14 +30,14 @@ We believe this approach has the following benefits:
 When using this package in production environments you have to take into account the following:
 
 1. For simplicity we provide a PHP implementation for scrypt (using SHA512). This implementation has the following limitations:
-..* It requires PHP 64-bit, since PHP does not support unsigned integers
-..* It runs very slow (about 20 secs for N=32768)
-..* It requires memory so you will need to edit php.ini and set the memory_limit directive (about 400MB for N=32768)
-..* We highly recommend you use the following: https://github.com/enceeper/scrypt and provide the path to the executable.
+  * It requires PHP 64-bit, since PHP does not support unsigned integers
+  * It runs very slow (about 20 secs for N=32768)
+  * It requires memory so you will need to edit php.ini and set the memory_limit directive (about 400MB for N=32768)
+  * We highly recommend you use the following: https://github.com/enceeper/scrypt and provide the path to the executable.
 2. We provide a caching mechanism utilizing the filesystem or Redis. You have to take into account the following:
-..* For the Redis cache you need to have Redis installed (Redis server: https://redis.io and PHP Redis package: https://github.com/phpredis/phpredis)
-..* For the filesystem cache you have to make sure that the script has write permissions to the target directory
-..* For production systems it is recommended to utilize the batch mode strategy: `STRATEGY_BATCH_MODE`. You must also setup a job (i.e. crontab) to periodically update the cache contents
+  * For the Redis cache you need to have Redis installed (Redis server: https://redis.io and PHP Redis package: https://github.com/phpredis/phpredis)
+  * For the filesystem cache you have to make sure that the script has write permissions to the target directory
+  * For production systems it is recommended to utilize the batch mode strategy: `STRATEGY_BATCH_MODE`. You must also setup a job (i.e. crontab) to periodically update the cache contents
 3. We also recommend you have the internationalization extension installed (intl) that provides the `Normalizer::normalize` method in order to retrieve the NFKD form of the password and have consistent results across platforms and encodings (http://php.net/manual/en/normalizer.normalize.php)
 
 ## Usage

@@ -1,6 +1,6 @@
 {
 	"name": "enceeper/enceeper-phpconf",
-	"description": "PHP package for fetching keys from a user account on Enceeper. The main purpose is to be able to store configuration information in the user's safe and have this information delivered to a PHP application.",
+	"description": "Is a PHP package used for fetching keys from a user's Enceeper account. The main goal is to be able to store configuration information in a key and have this information delivered to a PHP application (other uses are welcome 😀).",
 	"type": "library",
 	"license": "GPL-3.0-or-later",
 	"keywords": [
