@@ -1,6 +1,6 @@
 # Enceeper PHP Conf
 
-Is a PHP package used for fetching keys from a user's Enceeper account. The main goal is to be able to store configuration information in a key and have this information delivered to a PHP application (other uses are welcome 😀).
+Is a PHP package used for fetching keys from a user's Enceeper account. The main goal is to store configuration information in a key and have this information delivered to a PHP application (other uses are welcome 😀).
 
 ## Introduction
 
@@ -31,7 +31,7 @@ When using this package in production environments you have to take into account
 
 1. For simplicity we provide a PHP implementation for scrypt (using SHA512). This implementation has the following limitations:
   * It requires PHP 64-bit, since PHP does not support unsigned integers
-  * It runs very slow (about 20 secs for N=32768)
+  * It runs very slow (about 20 times slower when compared to a C implementation for N=32768)
   * It requires memory so you will need to edit php.ini and set the memory_limit directive (about 400MB for N=32768)
   * We highly recommend you use the following: https://github.com/enceeper/scrypt and provide the path to the executable.
 2. We provide a caching mechanism utilizing the filesystem or Redis. You have to take into account the following:
